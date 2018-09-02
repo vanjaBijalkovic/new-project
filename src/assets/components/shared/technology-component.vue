@@ -3,11 +3,11 @@
     <div class="flex">
       <div>
         <p>
-          Java
+          {{ technology.name }}
         </p>
       </div>
       <div class="flex ml-auto mr-32">
-        <div v-for="index in 4" :key="index">
+        <div v-for="skillLevel in technology.skill_level" :key="skillLevel">
           <small-box></small-box>
         </div>
       </div>
@@ -21,10 +21,11 @@
   export default {
     components: {
       SmallBox
-    }
+    },
+    props: {
+      technology: {
+        required: false
+      },
+    },
   }
 </script>
-
-<style scoped>
-
-</style>

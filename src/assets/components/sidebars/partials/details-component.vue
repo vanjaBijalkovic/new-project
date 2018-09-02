@@ -5,12 +5,16 @@
     </div>
     <div class="py-10 mr-4">
       <div class="flex justify-between"
-        v-for="index in 5" :key="index">
+        v-for="technology in technologies" :key="technology.id">
         <p class="text-sm m-2">
-          Java
+          {{ technology.name }}
         </p>
         <div class="flex m-1">
-          <boxes-component></boxes-component>
+          <boxes-component 
+            :technology="technology"
+            :category="category"
+            :skill="skill">
+          </boxes-component>
         </div>
       </div>
     </div>
@@ -19,24 +23,29 @@
 
 <script>
   import BoxesComponent from '../../shared/boxes-component.vue'
+  import { mapState } from 'vuex'
+  
   export default {
     components: {
       BoxesComponent
     },
-    data() {
-      return {
-      }
-    },
     props: {
-      title: {
-        type: String,
-        required: true
+      technologies: {
+        type: Array,
+        required: false
       },
+      category: {
+        required: false
+      },
+      skill: {
+        required: false
+      }
     },
     computed: {
       componentTitle() {
-        return this.title; 
-      }
-    },
+        return this.category.name; 
+      },
+      ...mapState(['user'])
+    }
   }
 </script>

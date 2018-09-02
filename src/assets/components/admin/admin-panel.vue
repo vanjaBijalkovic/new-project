@@ -1,6 +1,6 @@
 <template>
   <div  class="container mx-auto flex">
-    <div class="w-1/3">
+    <div style="width: 800px">
       <left-sidebar></left-sidebar>
     </div>
     <div class="border-grey border-t-2 border-b-2 border-r-2 w-screen">
